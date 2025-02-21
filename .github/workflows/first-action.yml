@@ -26,6 +26,7 @@ jobs:
         path: dragon.txt
 
   test-job-2:
+    needs: [build-job-1]
     runs-on: ubuntu-latest
     steps:
     - name: Download drgon text file
