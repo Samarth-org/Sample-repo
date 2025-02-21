@@ -35,3 +35,20 @@ jobs:
         name: dragon-txt-file
     - name: Test if file exists
       run: grep -i "dragon" dragon.txt
+
+  deploy-job-3:
+    needs: [test-job-2]
+    runs-on: ubuntu-latest
+    steps:
+    - name: download dragon file
+      uses: actions/download-artifacts@v4
+      with: 
+        name: dragon-txt-file
+
+    - name: read file 
+      run: cat dragon.txt
+
+    - name: tell the user bye
+      run: |
+        echo "Thank you" >> greet.txt
+        cat greet.txt
