@@ -4,23 +4,19 @@ on:
   
 jobs:
   docker:
+    env: 
+      IMAGE_NAME: my-custom-image111
+      DOCKER_USERNAME: samarth2002
+      DOCKER_PASSWORD: Samarthdocker
+      CONTAINER_REGISTRY: docker.io
+      
     runs-on: ubuntu-latest
     steps:
-      - name: Docker build
-        env: 
-          DOCKER_USERNAME: samarth2002
-          IMAGE_NAME: my-custom-image
-        run: echo docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+    - name: Docker build
+      run: echo docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
-      - name: DOCKER LOGIN
-        env:
-          DOCKER_USERNAME: samarth2002
-          DOCKER_PASSWORD: Samarthdocker
-        run: echo docker login --username=$DOCKER_USERNAME --password-$DOCKER_PASSWORD
+    - name: DOCKER LOGIN
+      run: echo docker login --username=$DOCKER_USERNAME --password-$DOCKER_PASSWORD
 
-      - name: DOCKER publish
-        env: 
-          DOCKER_USERNAME: samarth2002
-          CONTAINER_REGISTRY: docker.io
-          IMAGE_NAME: my-custom-image
-        run: echo docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+    - name: DOCKER publish
+      run: echo docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
