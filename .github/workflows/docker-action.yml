@@ -4,7 +4,6 @@ on:
 env: 
     IMAGE_NAME: my-custom-image111
     DOCKER_USERNAME: samarth2002
-    DOCKER_PASSWORD: Samarthdocker
     CONTAINER_REGISTRY: docker.io
   
 jobs:
@@ -12,9 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Docker build
-      run: echo docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+      run: echo docker build -t ${{ env.CONTAINER_REGISTRY }}/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
     - name: DOCKER LOGIN
+      env: 
+        DOCKER_PASSWORD: Samarthdocker
       run: echo docker login --username=$DOCKER_USERNAME --password-$DOCKER_PASSWORD
 
     - name: DOCKER publish
