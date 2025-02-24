@@ -1,15 +1,14 @@
 name: docker workflow
 on:
   push
+env: 
+    IMAGE_NAME: my-custom-image111
+    DOCKER_USERNAME: samarth2002
+    DOCKER_PASSWORD: Samarthdocker
+    CONTAINER_REGISTRY: docker.io
   
 jobs:
   docker:
-    env: 
-      IMAGE_NAME: my-custom-image111
-      DOCKER_USERNAME: samarth2002
-      DOCKER_PASSWORD: Samarthdocker
-      CONTAINER_REGISTRY: docker.io
-      
     runs-on: ubuntu-latest
     steps:
     - name: Docker build
