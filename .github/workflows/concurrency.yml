@@ -1,0 +1,26 @@
+name: Concurrent PR
+on: 
+  pull_request:
+    branches: main
+
+concurrency: 
+  # group: tests-on-pr-${{ github.head_ref }}
+  group: build-and-test
+  #cancel-in-progress: true
+
+jobs:
+  build-and-test-on-pr:
+    name: Build and Test on PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build the code
+        run: |
+          echo "starting the code build"
+          sleeps 2m
+          echo "Finish code build"
+
+      - name: Test the code
+        run: |
+          echo "Starting the code build"
+          sleeps 2m
+          echo "Finish the code build"
