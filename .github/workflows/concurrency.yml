@@ -16,11 +16,11 @@ jobs:
       - name: Build the code
         run: |
           echo "starting the code build"
-          sleeps 2m
+          sleep 2m
           echo "Finish code build"
 
       - name: Test the code
         run: |
           echo "Starting the code build"
-          sleeps 2m
+          sleep 2m
           echo "Finish the code build"
