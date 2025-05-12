@@ -4,9 +4,11 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubunu-latest, windows-latest, mac-latest]
-        node: [12.x, 15.x, 18.x]
+        os: [ubunu-latest, windows-latest]
+        node: [12.x, 15.x]
     runs-on: ${{ matrix.os }}
     steps: 
-      - name: list the files in the repo
-        run: echo "$GITHUB_ACTOR"
+      - name: setup node version
+        uses: actions/setup-node@v4
+        with: 
+          node: ${{ matrix.node }}
