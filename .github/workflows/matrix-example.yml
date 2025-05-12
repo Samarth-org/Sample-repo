@@ -1,0 +1,12 @@
+name: matric strategy
+on: [workflow_dispatch]
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubunu-latest, windows-latest, mac-latest]
+        node: [12.x, 15.x, 18.x]
+    runs-on: ${{ matrix.os }}
+    steps: 
+      - name: list the files in the repo
+        run: echo "$GITHUB.ACTOR"
