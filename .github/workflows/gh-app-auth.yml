@@ -22,3 +22,7 @@ jobs:
         with:
           token: ${{ steps.get_token.outputs.token }}
           repository: Samarth-org/GitHub-repo
+
+      - name: Cloning another repo
+        run: git clone https://x:${{ steps.get_token_outputs_token }}@github.com/Samarth-org/GitHub-repo 
+          
