@@ -24,5 +24,5 @@ jobs:
           repository: Samarth-org/GitHub-repo
 
       - name: Cloning another repo
-        run: git clone https://x:${{ steps.get_token_outputs_token }}@github.com/Samarth-org/GitHub-repo 
+        run: git clone https://Samarth-DevTools:${{ steps.get_token_outputs_token }}@github.com/Samarth-org/GitHub-repo 
           
